@@ -33,8 +33,8 @@ Dataset = E Commerce Dataset (link: https://www.kaggle.com/code/ankitverma2010/e
 **Goals:**
 
 - Berdasarkan permasalahan tersebut, perusahaan ingin memiliki kemampuan untuk memprediksi kecenderungan tinggi untuk seorang customer akan churn atau meninggalkan perusahaan. sehingga akan memudahkan perusahaan untuk menyusun strategi dalam mengurangi kerugian berupa kehilangan custumer tersebut dengan memberikan mereka beberapa layanan yang positif. 
-- Mengetahui faktor apa saja yang mempengaruhi customer akan churn dari e-commerce
-- Mengetahui insight yang didapatkan dari analisis data untuk menjawab permasalahan bisnis perusahaan
+- Mengetahui faktor apa saja yang mempengaruhi customer akan churn dari e-commerce.
+- Mengetahui insight yang didapatkan dari analisis data untuk menjawab permasalahan bisnis perusahaan.
 
 **Analytic Approach:**
 
@@ -242,7 +242,7 @@ Customer yang lebih banyak menggunakan Computer, metode pembayarannya menggunaka
 6. Berdasarkan `CouponUsed` yang didapatkan dan digunakan oleh customer, customer yang menggunakan kupon sebanyak 8 kali memiliki tingkat churn tinggi, namun jumlah customernya paling sedikit. Oleh karena itu, kita dapat mengasumsikan bahwa customer tersebut merupakan 'Coupon seeker' atau orang-orang yang hanya menggunakan layanan karena ada promo, setelah promo digunakan mereka akan berhenti menggunakan layanan dan berpindah ke kompetitor. Maka, kita dapat merekomendasikan untuk selalu intens memberikan informasi promo kepada customer tersebut.
 
 **Hal-hal yang dapat dilakukan untuk memaksimalkan model:**
-1. Mencoba model algoritma klasifikasi lain yang lebih tinggi tingkat akurasinya atau lebih cocok terhadap costumer churn
+1. Mencoba model algoritma klasifikasi lain yang lebih tinggi tingkat akurasinya atau lebih cocok terhadap costumer churn.
 2. Melakukan banyak percobaan terhadap hyperparameter tuning agar mendapatkan parameter yang paling baik.
 3. Mencoba metode handling imbalance lainnya yang dapat mengatasi imbalance klasifikasi.
 
