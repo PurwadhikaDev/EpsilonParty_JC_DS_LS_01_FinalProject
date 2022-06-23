@@ -109,7 +109,127 @@ Dari dataset, data target atau 'Churn' merupakan data imbalance. Hal ini dilihat
 
 ## **Data Analysis/Exploratory Data Analysis (EDA)**
 
-**Satisfaction Score**
+### **Satisfaction Score**
+![satisfaction](https://user-images.githubusercontent.com/51298939/175254844-3ac3af38-720f-4825-b8ee-467f2a4c1c97.png)
+
+### **Complain**
+
+![complain](https://user-images.githubusercontent.com/51298939/175253139-c9e39487-cd1b-468f-aa8f-262e5d9b5371.png)
+
+### **Coupon Used**
+
+![Coupon](https://user-images.githubusercontent.com/51298939/175253387-218afc87-0435-405a-a746-fa2e1128368f.png)
+
+### **Tenure**
+
+![image](https://user-images.githubusercontent.com/51298939/175253604-1c491cec-3ca6-4e1b-863d-a2eca6c5aeea.png)
+
+### **Cashback Amount**
+
+![cashback](https://user-images.githubusercontent.com/51298939/175254360-51b3aa6f-ee00-4e27-b301-b0f326f18ca4.png)
+
+### **Analysis insight**
+1. Customer yang menggunakan computer lebih sedikit dan tingkat churnnya tinggi.
+2. Penggunaan layanan pembayaran berupa Cash on Delivery memiliki tingkat churn yang tinggi. 
+3. Customer yang membeli kategori elektronik pada layanan e commerce paling tinggi churnnya (63%). 
+4. Customer yang berada di City tier 3 memiliki churn ratenya tinggi. Semakin tinggi City Tiernya semakin tinggi tingkat churnnya karena banyak faktor yang memperngaruhinya.
+5. Pada Feature Satisfaction Score, Customer yang memberikan Score 5 tidak bisa dikatakan Customer yang tidak akan Churn.
+6. Customer yang melakukan complain churn ratenya tinggi.
+7. Customer yang menggunakan kupon 8 kali tidak bisa dikatakan Customer yang tidak akan churn, karena banyak Customer yang hanya ingin menggunakan promo saja. 
+8. Pada Feature Tenure, Mayoritas Customer memiliki umur tenure yang pendek. Customer yang sudah lama menggunakan layanan maka cenderung untuk tidak churn.
+9. Customer yang memiliki jarak rumah yang jauh ke gudang pengiriman akan tinggi churn ratenya.
+10. Berdasarkan feature DaySinceLastOrder, Customer yang memiliki churn rate tinggi akan berkurang dengan bertambah lamanya hari terakhir Customer berbelanja. Semakin sedikit jumlah Customer semakin lama customer tidak berbelanja.
+11. Customer yang memiliki churn rate tinggi akan berkurang dengan bertambah tinggi Cashback yang diterima Customer.
+12. Berdasarkan Matrix Korelasi, Feature CouponUsed dan OrderCount memiliki korelasi yang kuat karena setiap Customer dengan lebih banyak kupon dapat memesan lebih banyak barang. Dan terdapat korelasi kuat antara Feature Tenure dan CashbackAmount karena semakin lama pelanggan menggunakan layanan semakin banyak juga cashback yang didapatkan. 
 
 
+## **Modeling & Evaluation**
 
+Berdasarkan grafik di atas, kita dapat melihat fitur-fitur yang memberikan pengaruh penting (signifikan) terhadap customer churn. Kita dapat menjadikan feature importance sebagai acuan untuk memberikan rekomendasi kepada stakeholder.
+
+Berikut merupakan fitur-fitur yang signifikan berpengaruh terhadap customer churn:
+- Tenure
+- Complain
+- PreferedOrderCat (X3)
+- PreferredLoginDevice (X0)
+- PreferredPaymentMode (X1)
+- NumberOfAddress
+- MaritalStatus (X3)
+
+## **Shapley Additive Explanations (SHAP) Values**
+
+**Berdasarkan SHAP value:**
+1. **Tenure** : Customer dengan Tenure kecil berpengaruh secara positif dengan target atau kemungkinan besar akan churn.
+2. **Complain** : Complain hanya memiliki dua value (0 dan 1), `complain == 1` berpengaruh positif dengan target atau customer yang complain kemungkinan besar churn daripada `complain == 0`.
+3. **NumberOfAddress** : Jika customer mendaftarkan banyak alamatnya pada e-commerce berpengaruh positif terhadap target (Churn).
+4. **CashbackAmount**, **DaySinceLastOrder**, : Memiliki kemungkinan besar akan churn ketika value nya kecil.
+5. **WarehouseToHome**, **OrderCount**, **SatisfactionScore** : Memiliki kemungkinan besar akan churn ketika value nya besar.
+
+## **Conclusion & Recommendation**
+
+**Informasi:**
+
+Bedasarkan data Revenue E-commerce di Indonesia dari : https://ecommercedb.com/en/markets/id/all
+- Pada tahun 2021, salah satu e-commerce dengan revenue sebesar USD 390 million.
+- Kita akan menggunakan data tersebut untuk menganalisis performa model yang telah dibangun
+
+Perhitungan Keuangan:
+- Revenue tahun 2021 = USD 390 million
+- Kita asumsi pendapatan (Revenue) didapatkan dari:
+    - 80% dari customer
+    - 20% dari others
+- Asumsi customer tahun 2021 = 1.000.000 orang
+- Revenue per customer = (USD 390 m x 80%) / 1.000.000 (customer) = `USD 312` per customer dalam satu tahun.
+- Dana campaign (5% dari revenue) =  USD 19.500.000
+- Dana campaign per customer = USD 19.500.000 / 1.000.000 (customer) = `USD 19.5` per customer
+
+Kesimpulan:
+1. Berdasarkan campaign cost, kita mengalami kerugian karena memberikan promo yang salah sebesar 1,5%.
+2. Berdasarkan perhitungan yang telah dilakukan, kita dapat melakukan saving keuangan hingga 86% dengan loss 13,8%. ini menandakan modeling dapat saving money bagi perusahaan akibat kehilangan customer karena memperkecil prediksi yang salah.
+3. Keuntungan yang didapatkan setelah dikurangi dana untuk campaign kepada customer tetap adalah USD 226.746
+
+
+**Berdasarkan classification Report:**
+- Final model yang digunakan adalah model XGBoost yang telah dilakukan optimize threshold.
+- Berdasarkan `f1_score`, terdapat 89% pelanggan perlu diberikan perhatian lebih besar dengan memberikan layanan yang positif karena customer akan churn, dan terdapat 98% customer yang tidak perlu diberikan lebih layanan yang positif karena customer tidak akan churn.
+
+**Informasi kurva:**
+1. Kurva PR untuk final model sudah menjelaskan bahwa metrics dapat membedakan antara kelas positif dan kelas negatif atau dapat dikatakan sudah mengklasifikasikan dengan baik karena nilai yang dihasilkan 90% presisi tinggi dengan kurva condong ke sudut kanan atas.
+
+**Konklusi secara general:**
+- Berdasarkan dataset yang ada, terdapat 83% customer tidak churn dan 17% customer churn.
+- Dari EDA category features kita dapat mengetahui bahwa tingkat Customer yang Churnnya tinggi yaitu 
+Customer yang lebih banyak menggunakan Computer, metode pembayarannya menggunakan Cash on Delivery, banyak memesan kategori elektronik, gendernya male dan statusnya single.
+
+## **Recommendation**
+
+**Berdasarkan Feature Importance yang didapatkan dari Final Model:**
+-  `Tenure` merupakan fitur paling penting dalam menentukan customer akan churn. Jika dilihat dari EDA, customer yang memiliki nilai Tenure kecil (0-5 bulan pemakaian) paling banyak dan tingkat churn juga paling besar. Maka kita dapat melakukan:
+    - Memberikan layanan yang positif secara besar kepada customer baru (0-5 bulan) penggunaan agar tetap bertahan menggunakan layanan E-commerce ini.
+    - Layanan positif yang diberikan dapat berupa promo gratis ongkir tanpa ada minimal jarak, cashback pembelian barang, dan pemotongan harga yang dibeli.
+- `Complain` merupakan bagian penting lain yang harus diperhatikan, karena customer yang memberikan complain (1) terhadap e-commerce tingkat churnnya tinggi. Customer yang complain tidak puas dengan layanan yang diberikan ataupun ada masalah yang terjadi ketika customer menggunakan layanan.
+    - Hal yang dapat dilakukan untuk kedepannya, dapat mengumpulkan hasil complain tahun lalu terhadap layanan e-commerce, setelah itu menyusun memperbaiki layanan dengan mempertimbangkan complain yang diberikan oleh customer.
+- `PreferedOrderCat` kategori grocery merupakan salah satu kategori order yang berpengaruh signifikan, maka kita dapat memaksimalkan layanan terhadap customer yang melakukan pembelian pada kategori grocery.
+
+
+**Berdasarkan EDA:**
+1. Customer yang menggunakan computer lebih sedikit dan tingkat churnnya tinggi, oleh karena itu kita perlu menurunkan churn rate dengan meningkatkan layanan pada computer.
+2. Penggunaan layanan pembayaran berupa Cash on Delivery memiliki tingkat churn yang tinggi. Sebelum kita memperbaiki layanan, kita dapat meminta feedback kekurangan terhadap layanan dari Customer yang menggunakan agar kita dapat memperbaiki layanan dan menurunkan churn rate Customer.
+3. Customer yang membeli kategori elektronik pada layanan e commerce paling tinggi churnnya (63%). Oleh karena itu, kita dapat meningkatkan keamanan transaksi,pengiriman dan proteksi produk (dapat berupa asuransi rusak dan kecurian).
+4. Customer Single memiliki churn tinggi. Jika ingin menurunkan Churn ratenya, kita bisa meningkatkan terhadap layanan feature lain. Karena Customer Single termasuk dalam kategori dengan churn rate tinggi pada feature lain.
+5. Perlu diperhatikan terhadap `satisfaction score' yang diberikan customer. Satisfaction score sama dengan 3 merupakan penilaian paling banyak diberikan oleh customer diikuti score sama dengan 1. Ini menandakan bahwa customer tidak puas terhadap layanan yang diberikan. Sedangkan, tingkat churn customer tinggi dengan score 5. Terdapat dua hal yang perlu diperhatikan dan diberikan rekomendasi.
+    - Untuk customer yang memberikan score buruk (< 3) namun, tingkat churn rendah. Kita dapat meningkatkan layanan yang positif seperti, memberikan kupon promo, atau meningkatkan keamanan dalam bertransaksi dan pengiriman barang, dan cepat respon ketika customer memberikan complain.
+    - Untuk customer yang memberikan score paling baik (5), secara logika customer yang memberikan nilai paling baik, tingkat churn-nya seharusnya kecil. Berdasarkan hasil EDA dan observasi terhadap fitur lain, ternyata customer tersebut merupakan golongan customer baru (0-5 bulan) yang hanya melakukan order paling banyak 1 hingga 2 kali dan menggunakan kupon sedikit. Sehingga, dapat memberikan treatment positif kedepannya untuk customer yang memberikan score paling baik (5) agar tetap menjadi customer yang loyal seperti memberikan promo apapun.
+6. Berdasarkan `CouponUsed` yang didapatkan dan digunakan oleh customer, customer yang menggunakan kupon sebanyak 8 kali memiliki tingkat churn tinggi, namun jumlah customernya paling sedikit. Oleh karena itu, kita dapat mengasumsikan bahwa customer tersebut merupakan 'Coupon seeker' atau orang-orang yang hanya menggunakan layanan karena ada promo, setelah promo digunakan mereka akan berhenti menggunakan layanan dan berpindah ke kompetitor. Maka, kita dapat merekomendasikan untuk selalu intens memberikan informasi promo kepada customer tersebut.
+
+**Hal-hal yang dapat dilakukan untuk memaksimalkan model:**
+1. Mencoba model algoritma klasifikasi lain yang lebih tinggi tingkat akurasinya atau lebih cocok terhadap costumer churn
+2. Melakukan banyak percobaan terhadap hyperparameter tuning agar mendapatkan parameter yang paling baik.
+3. Mencoba metode handling imbalance lainnya yang dapat mengatasi imbalance klasifikasi.
+
+**Limitasi Model**
+- Jumlah data setelah drop outlier = 4735 baris
+- Warehouse to Home: 5 - 36 km
+- Hour Spend on App: 0.5 - 4.5 jam
+- Number of Address: 1 - 12 alamat
+- Cashback amount : 81 - 324.73
