@@ -129,18 +129,14 @@ Dari dataset, data target atau 'Churn' merupakan data imbalance. Hal ini dilihat
 ![cashback](https://user-images.githubusercontent.com/51298939/175254360-51b3aa6f-ee00-4e27-b301-b0f326f18ca4.png)
 
 ### **Analysis insight**
-1. Customer yang menggunakan computer lebih sedikit dan tingkat churnnya tinggi.
-2. Penggunaan layanan pembayaran berupa Cash on Delivery memiliki tingkat churn yang tinggi. 
-3. Customer yang membeli kategori elektronik pada layanan e commerce paling tinggi churnnya (63%). 
-4. Customer yang berada di City tier 3 memiliki churn ratenya tinggi. Semakin tinggi City Tiernya semakin tinggi tingkat churnnya karena banyak faktor yang memperngaruhinya.
-5. Pada Feature Satisfaction Score, Customer yang memberikan Score 5 tidak bisa dikatakan Customer yang tidak akan Churn.
-6. Customer yang melakukan complain churn ratenya tinggi.
-7. Customer yang menggunakan kupon 8 kali tidak bisa dikatakan Customer yang tidak akan churn, karena banyak Customer yang hanya ingin menggunakan promo saja. 
-8. Pada Feature Tenure, Mayoritas Customer memiliki umur tenure yang pendek. Customer yang sudah lama menggunakan layanan maka cenderung untuk tidak churn.
-9. Customer yang memiliki jarak rumah yang jauh ke gudang pengiriman akan tinggi churn ratenya.
-10. Berdasarkan feature DaySinceLastOrder, Customer yang memiliki churn rate tinggi akan berkurang dengan bertambah lamanya hari terakhir Customer berbelanja. Semakin sedikit jumlah Customer semakin lama customer tidak berbelanja.
-11. Customer yang memiliki churn rate tinggi akan berkurang dengan bertambah tinggi Cashback yang diterima Customer.
-12. Berdasarkan Matrix Korelasi, Feature CouponUsed dan OrderCount memiliki korelasi yang kuat karena setiap Customer dengan lebih banyak kupon dapat memesan lebih banyak barang. Dan terdapat korelasi kuat antara Feature Tenure dan CashbackAmount karena semakin lama Customer menggunakan layanan semakin banyak juga cashback yang didapatkan. 
+
+1. Pada Feature Satisfaction Score, Customer yang memberikan Score 5 tidak bisa dikatakan Customer yang tidak akan Churn.
+2. Customer yang melakukan complain churn ratenya tinggi.
+3. Customer yang menggunakan kupon 8 kali tidak bisa dikatakan Customer yang tidak akan churn, karena banyak Customer yang hanya ingin menggunakan promo saja. 
+4. Pada Feature Tenure, Mayoritas Customer memiliki umur tenure yang pendek. Customer yang sudah lama menggunakan layanan maka cenderung untuk tidak churn.
+5. Customer yang memiliki churn rate tinggi akan berkurang dengan bertambah tinggi Cashback yang diterima Customer.
+
+
 
 
 ## **Modeling & Evaluation**
