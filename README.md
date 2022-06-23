@@ -3,7 +3,7 @@
 ## **Ecommerce Customer Churn Analysis and Prediction**
 ***
 
-[Epsilon Party](Epsilon Party.png)
+[Epsilon Party][(Epsilon Party.png)](https://github.com/PurwadhikaDev/EpsilonParty_JC_DS_LS_01_FinalProject/blob/main/Epsilon%20Party.png)
 
 Team Members: 
 
