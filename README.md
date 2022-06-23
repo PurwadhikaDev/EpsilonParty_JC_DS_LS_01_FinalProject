@@ -3,7 +3,7 @@
 ## **Ecommerce Customer Churn Analysis and Prediction**
 ***
 
-![Epsilon Party](Epsilon Party.png)
+[Epsilon Party](Epsilon Party.png)
 
 Team Members: 
 
@@ -40,7 +40,7 @@ Dataset = E Commerce Dataset (link: https://www.kaggle.com/code/ankitverma2010/e
 
 **Metric Evaluation:**
 
-![Confusion Matrix](confusion.jpeg)
+[Confusion Matrix](confusion.jpeg)
 
 *Type 1 error : False Positive*
 <br>Konsekuensi: membuang-buang biaya dan waktu untuk mengadakan promo yang diberikan
