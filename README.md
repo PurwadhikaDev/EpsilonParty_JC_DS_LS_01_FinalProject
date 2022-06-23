@@ -1,5 +1,15 @@
 # EpsilonParty_JC_DS_LS_01_FinalProject
 
+# **Ecommerce Customer Churn Analysis and Prediction**
+
+Created By: 
+
+- Irfanul Zuhdi N
+- Nadya Sindi Safitri
+
+Dataset = E Commerce Dataset (link: https://www.kaggle.com/code/ankitverma2010/e-commercecustomerchurn/data)
+
+***
 ## **Business Problem Understanding**
 
 **Contex:**
