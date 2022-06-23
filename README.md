@@ -1,6 +1,6 @@
 # EpsilonParty_JC_DS_LS_01_FinalProject
 
-# **Ecommerce Customer Churn Analysis and Prediction**
+## **Ecommerce Customer Churn Analysis and Prediction**
 
 Created By: 
 
