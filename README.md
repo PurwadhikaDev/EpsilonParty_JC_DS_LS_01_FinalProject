@@ -56,3 +56,37 @@ Maka sebisa mungkin kita akan membuat model yang dapat meminimalisir dari 2 kons
 - Alasan utama menggunakan metrics f1_score dan PR curve karena dapat digunakan untuk data imbalance seperti kasus ini.
 - Precision-Recall curve secara khusus dirancang ketika kelas positif (churn) lebih menarik daripada kelas negatif (not churn), dan PR curve tidak terpengaruh oleh ketidakseimbangan data.
 - f1_score digunakan ketika kita fokus pada kelas positif (churn) dan mempertimbangan kedua bagian False Negative (FN) dan False Positive (FP).
+
+## **Data Understanding**
+
+**Unit Analysis**
+- Pada dataset ini merupakan dataset customer churn pada suatu perusahaan E-commerce.
+- Setiap baris data mempresentasikan satu customer yang di mana terdapat 5630 baris data dengan 20 kolom termasuk kolom 'CustomerID'.
+
+
+**Attribute Information**
+
+| Attribute | Data Type, Length | Description |
+| --- | --- | --- |
+| CustomerID | Int | ID tiap Customer yang belanja|
+| Churn | Int | Pelanggan melakukan Churn dan tidak Churn |
+| Tenure | Float | durasi(bulan) dalam menggunakan layanan ecommers  |
+| PreferredLoginDevice | Object | Perangkat login pilihan pelanggan|
+| CityTier | Int | Tingkatan Pengelompokan Daerah dalam satu negara |
+| WarehouseToHome | Float | Jarak antara gudang ke rumah pelanggan |
+| PreferredPaymentMode | Object | Metode pembayaran pilihan pelanggan|
+| Gender | Object | Jenis kelamin pelanggan|
+| HourSpendOnApp | Float | Jumlah durasi(jam) yang dihabiskan pelanggan dalam  menggunakan e-commerce|
+| NumberOfDeviceRegistered | Int | Jumlah perangkat yang terdaftar oleh pelanggan |
+| PreferedOrderCat | Object | Kategori pesanan pilihan pelanggan bulan lalu|
+| SatisfactionScore | Int | Tingkat kepuasan pelanggan pada layanan|
+| MaritalStatus | Object | Status pernikahan pelanggan|
+| NumberOfAddress | Int | Jumlah alamat per pelanggan yang terdaftar pada e-commerce |
+| Complain | Int | Keluhan yang telah diajukan oleh pelanggan pada bulan lalu |
+| OrderAmountHikeFromlastYear | Float | Persentase volume jumlah kenaikan pesanan dari tahun lalu |
+| CouponUsed | Float | kupon yang telah pengguna gunakan bulan lalu|
+| OrderCount | Float | Jumlah pesanan per pelanggan di bulan lalu|
+| DaySinceLastOrder | Float | Hari Sejak pesanan terakhir dipesan oleh pelanggan|
+| CashbackAmount | Float | Rata-rata cashback bulan lalu|
+
+
