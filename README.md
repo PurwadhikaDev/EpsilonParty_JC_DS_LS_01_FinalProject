@@ -130,13 +130,11 @@ Dari dataset, data target atau 'Churn' merupakan data imbalance. Hal ini dilihat
 
 ### **Analysis insight**
 
-1. Pada Feature Satisfaction Score, Customer yang memberikan Score 5 tidak bisa dikatakan Customer yang tidak akan Churn.
+1. Pada Feature 'Satisfaction Score', Customer yang memberikan Score 5 tidak bisa dikatakan Customer yang tidak akan Churn.
 2. Customer yang melakukan complain churn ratenya tinggi.
 3. Customer yang menggunakan kupon 8 kali tidak bisa dikatakan Customer yang tidak akan churn, karena banyak Customer yang hanya ingin menggunakan promo saja. 
 4. Pada Feature Tenure, Mayoritas Customer memiliki umur tenure yang pendek. Customer yang sudah lama menggunakan layanan maka cenderung untuk tidak churn.
 5. Customer yang memiliki churn rate tinggi akan berkurang dengan bertambah tinggi Cashback yang diterima Customer.
-
-
 
 
 ## **Modeling & Evaluation**
