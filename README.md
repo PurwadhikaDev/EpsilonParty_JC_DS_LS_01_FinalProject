@@ -145,7 +145,18 @@ Dari dataset, data target atau 'Churn' merupakan data imbalance. Hal ini dilihat
 
 ## **Modeling & Evaluation**
 
+**XGBClassifier**
+
+- XGboost adalah implementasi lanjutan dari algoritma peningkatan gradien (Gradient Boosting). XGboost menggunakan prinsip ensemble yaitu menggabungkan beberapa set pembelajar (tree) yang lemah menjadi sebuah model yang kuat sehingga menghasilkan prediksi yang kuat.
+
+![Recap score](https://user-images.githubusercontent.com/51298939/175260897-318bd8ff-73ed-4609-9b3e-21dcd8cbe26d.png)
+
+**Informasi score:**
+- Terlihat bahwa score yang dihasilkan menggunakan training set dan test set tidak jauh berbeda, ini menandakan proses modeling sudah benar. Hasil score yang didapatkan cukup baik setelah dilakukan hyperparameter tuning dan diuji performa model dalam test set, kita mendapatkan nilai f1_score = 0.8896 atau 89% tingkat akurasi model. Selain itu untuk PR AUC score setelah tuning didapatkan 0.903 atau 90% model sudah dapat membedakan kedua kelas.
+
 Berdasarkan grafik di atas, kita dapat melihat fitur-fitur yang memberikan pengaruh penting (signifikan) terhadap customer churn. Kita dapat menjadikan feature importance sebagai acuan untuk memberikan rekomendasi kepada stakeholder.
+
+![Importance](https://user-images.githubusercontent.com/51298939/175260388-fcad316a-4614-4af6-bb79-0971c3f51337.png)
 
 Berikut merupakan fitur-fitur yang signifikan berpengaruh terhadap customer churn:
 - Tenure
@@ -158,6 +169,8 @@ Berikut merupakan fitur-fitur yang signifikan berpengaruh terhadap customer chur
 
 ## **Shapley Additive Explanations (SHAP) Values**
 
+![Shapvalue](https://user-images.githubusercontent.com/51298939/175260104-8d32d0d7-384c-477c-86ad-7674f83dab56.png)
+
 **Berdasarkan SHAP value:**
 1. **Tenure** : Customer dengan Tenure kecil berpengaruh secara positif dengan target atau kemungkinan besar akan churn.
 2. **Complain** : Complain hanya memiliki dua value (0 dan 1), `complain == 1` berpengaruh positif dengan target atau customer yang complain kemungkinan besar churn daripada `complain == 0`.
@@ -166,6 +179,8 @@ Berikut merupakan fitur-fitur yang signifikan berpengaruh terhadap customer chur
 5. **WarehouseToHome**, **OrderCount**, **SatisfactionScore** : Memiliki kemungkinan besar akan churn ketika value nya besar.
 
 ## **Conclusion & Recommendation**
+
+![Confusion Matrix](https://user-images.githubusercontent.com/51298939/175259512-ea9e9de3-cb78-4226-bfdd-f8f18e1157fe.png)
 
 **Informasi:**
 
@@ -188,6 +203,9 @@ Kesimpulan:
 2. Berdasarkan perhitungan yang telah dilakukan, kita dapat melakukan saving keuangan hingga 86% dengan loss 13,8%. ini menandakan modeling dapat saving money bagi perusahaan akibat kehilangan customer karena memperkecil prediksi yang salah.
 3. Keuntungan yang didapatkan setelah dikurangi dana untuk campaign kepada customer tetap adalah USD 226.746
 
+![Classification Report](https://user-images.githubusercontent.com/51298939/175259744-dcc27795-114a-43eb-a2e5-15e956e6bdbe.png)
+
+![PRAUCscore](https://user-images.githubusercontent.com/51298939/175259880-46dc820e-43c6-4466-9b99-e8937eae8817.png)
 
 **Berdasarkan classification Report:**
 - Final model yang digunakan adalah model XGBoost yang telah dilakukan optimize threshold.
@@ -195,6 +213,7 @@ Kesimpulan:
 
 **Informasi kurva:**
 1. Kurva PR untuk final model sudah menjelaskan bahwa metrics dapat membedakan antara kelas positif dan kelas negatif atau dapat dikatakan sudah mengklasifikasikan dengan baik karena nilai yang dihasilkan 90% presisi tinggi dengan kurva condong ke sudut kanan atas.
+2. PR Curve Tuned bekerja dengan threshold 0.33 atau dapat dikatakan kelas positif dengan probabilitas > 0.33 dan kelas negatif dengan probabilitas < 0,33. Dengan PR curve tuned merupakan threshold terbaik untuk masalah ini.
 
 **Konklusi secara general:**
 - Berdasarkan dataset yang ada, terdapat 83% customer tidak churn dan 17% customer churn.
@@ -217,7 +236,7 @@ Customer yang lebih banyak menggunakan Computer, metode pembayarannya menggunaka
 2. Penggunaan layanan pembayaran berupa Cash on Delivery memiliki tingkat churn yang tinggi. Sebelum kita memperbaiki layanan, kita dapat meminta feedback kekurangan terhadap layanan dari Customer yang menggunakan agar kita dapat memperbaiki layanan dan menurunkan churn rate Customer.
 3. Customer yang membeli kategori elektronik pada layanan e commerce paling tinggi churnnya (63%). Oleh karena itu, kita dapat meningkatkan keamanan transaksi,pengiriman dan proteksi produk (dapat berupa asuransi rusak dan kecurian).
 4. Customer Single memiliki churn tinggi. Jika ingin menurunkan Churn ratenya, kita bisa meningkatkan terhadap layanan feature lain. Karena Customer Single termasuk dalam kategori dengan churn rate tinggi pada feature lain.
-5. Perlu diperhatikan terhadap `satisfaction score' yang diberikan customer. Satisfaction score sama dengan 3 merupakan penilaian paling banyak diberikan oleh customer diikuti score sama dengan 1. Ini menandakan bahwa customer tidak puas terhadap layanan yang diberikan. Sedangkan, tingkat churn customer tinggi dengan score 5. Terdapat dua hal yang perlu diperhatikan dan diberikan rekomendasi.
+5. Perlu diperhatikan terhadap `satisfaction score` yang diberikan customer. Satisfaction score sama dengan 3 merupakan penilaian paling banyak diberikan oleh customer diikuti score sama dengan 1. Ini menandakan bahwa customer tidak puas terhadap layanan yang diberikan. Sedangkan, tingkat churn customer tinggi dengan score 5. Terdapat dua hal yang perlu diperhatikan dan diberikan rekomendasi.
     - Untuk customer yang memberikan score buruk (< 3) namun, tingkat churn rendah. Kita dapat meningkatkan layanan yang positif seperti, memberikan kupon promo, atau meningkatkan keamanan dalam bertransaksi dan pengiriman barang, dan cepat respon ketika customer memberikan complain.
     - Untuk customer yang memberikan score paling baik (5), secara logika customer yang memberikan nilai paling baik, tingkat churn-nya seharusnya kecil. Berdasarkan hasil EDA dan observasi terhadap fitur lain, ternyata customer tersebut merupakan golongan customer baru (0-5 bulan) yang hanya melakukan order paling banyak 1 hingga 2 kali dan menggunakan kupon sedikit. Sehingga, dapat memberikan treatment positif kedepannya untuk customer yang memberikan score paling baik (5) agar tetap menjadi customer yang loyal seperti memberikan promo apapun.
 6. Berdasarkan `CouponUsed` yang didapatkan dan digunakan oleh customer, customer yang menggunakan kupon sebanyak 8 kali memiliki tingkat churn tinggi, namun jumlah customernya paling sedikit. Oleh karena itu, kita dapat mengasumsikan bahwa customer tersebut merupakan 'Coupon seeker' atau orang-orang yang hanya menggunakan layanan karena ada promo, setelah promo digunakan mereka akan berhenti menggunakan layanan dan berpindah ke kompetitor. Maka, kita dapat merekomendasikan untuk selalu intens memberikan informasi promo kepada customer tersebut.
