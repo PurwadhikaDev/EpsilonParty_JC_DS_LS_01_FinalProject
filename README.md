@@ -40,7 +40,7 @@ Dataset = E Commerce Dataset (link: https://www.kaggle.com/code/ankitverma2010/e
 
 **Metric Evaluation:**
 
-[Confusion Matrix](confusion.jpeg)
+![confusion](https://user-images.githubusercontent.com/51298939/175247978-b98c3867-569d-4deb-8e9f-d250b00f5db9.jpeg)
 
 *Type 1 error : False Positive*
 <br>Konsekuensi: membuang-buang biaya dan waktu untuk mengadakan promo yang diberikan
