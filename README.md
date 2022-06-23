@@ -4,7 +4,7 @@
 
 Created By: 
 
-- Irfanul Zuhdi N
+- ![Irfanul Zuhdi N](https://github.com/irfanulzuhdi)
 - Nadya Sindi Safitri
 
 Dataset = E Commerce Dataset (link: https://www.kaggle.com/code/ankitverma2010/e-commercecustomerchurn/data)
