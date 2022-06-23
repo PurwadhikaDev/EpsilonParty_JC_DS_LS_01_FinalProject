@@ -32,7 +32,9 @@ Dataset = E Commerce Dataset (link: https://www.kaggle.com/code/ankitverma2010/e
 
 **Goals:**
 
-- Berdasarkan permasalahan tersebut, perusahaan ingin memiliki kemampuan untuk memprediksi kecenderungan tinggi untuk seorang customer akan churn atau meninggalkan perusahaan. sehingga akan memudahkan perusahaan untuk Menyusun strategi untuk mengurangi kerugian berupa kehilangan custumer tersebut dengan memberikan mereka beberapa penawaran yang positif. 
+- Berdasarkan permasalahan tersebut, perusahaan ingin memiliki kemampuan untuk memprediksi kecenderungan tinggi untuk seorang customer akan churn atau meninggalkan perusahaan. sehingga akan memudahkan perusahaan untuk menyusun strategi dalam mengurangi kerugian berupa kehilangan custumer tersebut dengan memberikan mereka beberapa layanan yang positif. 
+- Mengetahui faktor apa saja yang mempengaruhi customer akan churn dari e-commerce
+- Mengetahui insight yang didapatkan dari analisis data untuk menjawab permasalahan bisnis perusahaan
 
 **Analytic Approach:**
 
@@ -60,8 +62,7 @@ Maka sebisa mungkin kita akan membuat model yang dapat meminimalisir dari 2 kons
 ## **Data Understanding**
 
 **Unit Analysis**
-- Pada dataset ini merupakan dataset customer churn pada suatu perusahaan E-commerce.
-- Setiap baris data mempresentasikan satu customer yang di mana terdapat 5630 baris data dengan 20 kolom termasuk kolom 'CustomerID'.
+Berdasarkan *problem statement* ini merupakan permasalahan mengenai E-commerce (Company online retail) Customer Churn. Data ini disebarkan secara public di Kaggle. Data ini berisikan setiap baris data mempresentasikan satu customer yang di mana terdapat 5630 baris data dengan 20 kolom termasuk kolom 'CustomerID'.
 
 
 **Attribute Information**
@@ -88,5 +89,13 @@ Maka sebisa mungkin kita akan membuat model yang dapat meminimalisir dari 2 kons
 | OrderCount | Float | Jumlah pesanan per pelanggan di bulan lalu|
 | DaySinceLastOrder | Float | Hari Sejak pesanan terakhir dipesan oleh pelanggan|
 | CashbackAmount | Float | Rata-rata cashback bulan lalu|
+
+## **Data Preprocessing (Cleaning)**
+
+Sebelum kita melakukan Exploratory Data Analysis (EDA), sebaiknya kita melakukan Data Preprocessing atau Data Cleaning. Pada tahapan ini, kita akan melakukan pengecekan terhadap dataset apakah memiliki anomali. Jika terdapat anomali pada dataset, maka akan mempengaruhi hasil analisis yang kita lakukan. Data yang dapat mengganggu proses analisis dapat dilihat jika memiliki missing value, kesalahan dalam penulisan atau pengulangan penulisan untuk satu kata yang sama, data yang duplikat, tipe data yang tidak sesuai, dan data outlier. Oleh karena itu, perlu adanya penanganan terhadap beberapa data yang bermasalah tersebut. Sehingga, Data yang sudah bersih yang akan kita gunakan untuk lanjut ke tahap analisis. 
+
+- Langkah Pertama, kita melakukan drop pada kolom `CustomerID`. Karena kolom tersebut merupakan ID unik setiap customer yang tidak akan mempengaruhi target (tidak dapat digunakan untuk analisa data dan pembuatan model machine learning).
+
+**Check Target (Churn)**
 
 
