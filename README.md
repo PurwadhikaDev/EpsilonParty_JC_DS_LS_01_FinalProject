@@ -140,7 +140,7 @@ Dari dataset, data target atau 'Churn' merupakan data imbalance. Hal ini dilihat
 9. Customer yang memiliki jarak rumah yang jauh ke gudang pengiriman akan tinggi churn ratenya.
 10. Berdasarkan feature DaySinceLastOrder, Customer yang memiliki churn rate tinggi akan berkurang dengan bertambah lamanya hari terakhir Customer berbelanja. Semakin sedikit jumlah Customer semakin lama customer tidak berbelanja.
 11. Customer yang memiliki churn rate tinggi akan berkurang dengan bertambah tinggi Cashback yang diterima Customer.
-12. Berdasarkan Matrix Korelasi, Feature CouponUsed dan OrderCount memiliki korelasi yang kuat karena setiap Customer dengan lebih banyak kupon dapat memesan lebih banyak barang. Dan terdapat korelasi kuat antara Feature Tenure dan CashbackAmount karena semakin lama pelanggan menggunakan layanan semakin banyak juga cashback yang didapatkan. 
+12. Berdasarkan Matrix Korelasi, Feature CouponUsed dan OrderCount memiliki korelasi yang kuat karena setiap Customer dengan lebih banyak kupon dapat memesan lebih banyak barang. Dan terdapat korelasi kuat antara Feature Tenure dan CashbackAmount karena semakin lama Customer menggunakan layanan semakin banyak juga cashback yang didapatkan. 
 
 
 ## **Modeling & Evaluation**
