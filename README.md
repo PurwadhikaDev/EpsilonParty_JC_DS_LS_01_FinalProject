@@ -98,4 +98,18 @@ Sebelum kita melakukan Exploratory Data Analysis (EDA), sebaiknya kita melakukan
 
 **Check Target (Churn)**
 
+Dari dataset, data target atau 'Churn' merupakan data imbalance. Hal ini dilihat dari jumlah customer yang tidak churn sebesar 83% (4682 customer), sedangkan customer yang churn sebesar 17% (948 customer).
+
+![Data imbalance](https://user-images.githubusercontent.com/51298939/175250935-5833f119-a2b2-48ce-bd44-a246db53d653.png)
+
+1. Missing Value Treatment
+2. Data Duplicate
+3. Non-standard Value (Categorical Features)
+4. Handling Outliers (Numerical Features)
+
+## **Data Analysis/Exploratory Data Analysis (EDA)**
+
+**Satisfaction Score**
+
+
 
